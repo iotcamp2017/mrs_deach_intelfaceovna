@@ -1,8 +1,8 @@
 struct RGB
 {
-	unsigned char R;
-	unsigned char G;
-	unsigned char B;
+	int R;
+	int G;
+	int B;
 };
 
 struct HSL
@@ -47,9 +47,9 @@ struct RGB HSLToRGB(struct HSL hsl) {
 		v2 = (hsl.L < 0.5) ? (hsl.L * (1 + hsl.S)) : ((hsl.L + hsl.S) - (hsl.L * hsl.S));
 		v1 = 2 * hsl.L - v2;
 
-		rgb.R = (unsigned char)(255 * HueToRGB(v1, v2, hue + (1.0f / 3)));
-		rgb.G = (unsigned char)(255 * HueToRGB(v1, v2, hue));
-		rgb.B = (unsigned char)(255 * HueToRGB(v1, v2, hue - (1.0f / 3)));
+		rgb.R = round(255 * HueToRGB(v1, v2, hue + (1.0f / 3)));
+		rgb.G = round(255 * HueToRGB(v1, v2, hue));
+		rgb.B = round(255 * HueToRGB(v1, v2, hue - (1.0f / 3)));
 	}
 
 	return rgb;
@@ -57,7 +57,15 @@ struct RGB HSLToRGB(struct HSL hsl) {
 
 
 struct RGB ConvertRangeToRGB(int num, int lightness){ 
-	struct HSL CLR = {num/100*360, 100, lightness/100*50};
+	struct HSL CLR = {round(num/100*360), 100, lightness/100*50};
 	
 	return HSLToRGB(CLR);
+}
+
+int round(float fx)
+{
+    int ix;
+    if(fx<0) ix = (fx-0.5);
+    else     ix = (fx+0.5);
+    return ix;
 }
