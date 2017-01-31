@@ -18,10 +18,10 @@ void setup() {
 }
 
 void loop() {
-  fadeColors(0,255,0,255,0,0);
+  fadeColors(0,255,0,255,255,0);
   delay(1500);
-  fadeColors(255,0,0,255,255,0);
-  delay(1500);
+  //fadeColors(255,0,0,255,255,0);
+  //delay(1500);
   fadeColors(255,255,0,255,0,255);
   delay(1500);
   fadeColors(255,0,255,0,0,255);
