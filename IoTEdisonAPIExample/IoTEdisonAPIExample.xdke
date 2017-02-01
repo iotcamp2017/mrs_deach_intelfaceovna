@@ -1,0 +1,119 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      ".gitignore": {
+        "previousModTime": 1485808374281,
+        "modified": 1485808374281,
+        "seen": true,
+        "name": ".gitignore"
+      },
+      "IoTEdisonAPIExample.xdk": {
+        "previousModTime": 1485808203481,
+        "modified": 1485808203481,
+        "seen": true,
+        "name": "IoTEdisonAPIExample.xdk"
+      },
+      "IoTEdisonAPIExample.xdke": {
+        "previousModTime": 1485947474270,
+        "modified": 1485947474270,
+        "seen": true,
+        "name": "IoTEdisonAPIExample.xdke"
+      },
+      "LICENSE.md": {
+        "previousModTime": 1485804933927,
+        "modified": 1485804933927,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "README.md": {
+        "previousModTime": 1485804933930,
+        "modified": 1485804933930,
+        "seen": true,
+        "name": "README.md"
+      },
+      "external_interface.js": {
+        "previousModTime": 1485937290014,
+        "modified": 1485937290014,
+        "seen": true,
+        "name": "external_interface.js"
+      },
+      "iot.api.js": {
+        "previousModTime": 1485874143036,
+        "modified": 1485874143036,
+        "seen": true,
+        "name": "iot.api.js"
+      },
+      "main.js": {
+        "previousModTime": 1485938583875,
+        "modified": 1485938583875,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1485851708982,
+        "modified": 1485851708982,
+        "seen": true,
+        "name": "package.json"
+      },
+      "xdk-publish-meta-data.json": {
+        "previousModTime": 1485804935724,
+        "modified": 1485804935724,
+        "seen": true,
+        "name": "xdk-publish-meta-data.json"
+      },
+      ".idea/IoTEdisonAPIExample.iml": {
+        "previousModTime": 1485806895583,
+        "modified": 1485806895583,
+        "seen": true,
+        "name": ".idea/IoTEdisonAPIExample.iml"
+      },
+      ".idea/modules.xml": {
+        "previousModTime": 1485806895918,
+        "modified": 1485806895918,
+        "seen": true,
+        "name": ".idea/modules.xml"
+      },
+      ".idea/workspace.xml": {
+        "previousModTime": 1485868493686,
+        "modified": 1485868493686,
+        "seen": true,
+        "name": ".idea/workspace.xml"
+      },
+      "client/index.css": {
+        "previousModTime": 1485804933960,
+        "modified": 1485804933960,
+        "seen": true,
+        "name": "client/index.css"
+      },
+      "client/index.html": {
+        "previousModTime": 1485804934022,
+        "modified": 1485804934022,
+        "seen": true,
+        "name": "client/index.html"
+      },
+      "client/index.js": {
+        "previousModTime": 1485804933973,
+        "modified": 1485804933973,
+        "seen": true,
+        "name": "client/index.js"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1485804934971,
+        "modified": 1485804934971,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      }
+    },
+    "boardFileStatus": {}
+  }
+}
