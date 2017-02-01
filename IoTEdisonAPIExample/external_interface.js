@@ -8,6 +8,9 @@ INTERFACE.coordServiceUuid = '00000000000000000000000000000001'; //coordServiceU
 var coordCharUUID = '00000000000000000000000000000001'; //uuid характеристик можно хранить как угодно, они не нужны для API, т.к. их затрагивает ТОЛЬКО код из этого файла
 
 API.registerNobleServiceUUID(API_UUID, INTERFACE.coordServiceUuid); // наш coordServiceUuid ОБЯЗАТЕЛЬНО! нужно сообщить API
+                                                                    //ВНИМАНИЕ! ОСОБЕННО АКТУАЛЬНО ДЛЯ КОМАНДЫ PolyTop!!!
+                                                                    //В ФУНКЦИЮ API.registerNobleServiceUUID МОЖНО ПЕРЕДАВАТЬ КАК ОДИН (string)UUID (если он один)
+                                                                    //ТАК И МАССИВ ИЗ [(string)UUID, ...] (если их несколько)!!!!!!!!!!!!
 
 INTERFACE.data = {}; //этот объект будет передаваться API при динамическом обновлении данных
 
@@ -33,7 +36,7 @@ INTERFACE.init = function(noble){ //this function contains all the main function
 
     //BLE onDiscover should be described over here
     noble.on('discover', function(peripheral) {
-        noble.stopScanning();
+       // noble.stopScanning();
         
         peripheral.connect(function(error) {
             console.log('connected to peripheral: ' + peripheral.uuid);
