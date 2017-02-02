@@ -17,7 +17,8 @@ $(document).ready(function(){
             var hits_per_second = $.getJSON('/getHitsPerSecond');
             
             $.get( "/getHitsPerSecond", function( data ) {
-                  $( "div#hits_per_second" ).html( data );
+                  $( "div#hits_per_second" ).css( "background-color", "hsl(" + data + ", 100%, 50%)" );
+                  $( "div#hits_per_second" ).html( "background-color" + "hsl(" + data + ", 100%, 50%)" );
                 });
         });
     }, 50);
