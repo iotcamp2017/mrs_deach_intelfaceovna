@@ -30,8 +30,8 @@
         "name": "icon.png"
       },
       "main.js": {
-        "previousModTime": 1486052062452,
-        "modified": 1486052062452,
+        "previousModTime": 1486054725940,
+        "modified": 1486054725940,
         "seen": true,
         "name": "main.js"
       },
@@ -48,8 +48,8 @@
         "name": "test123.xdk"
       },
       "test123.xdke": {
-        "previousModTime": 1486051811436,
-        "modified": 1486051811436,
+        "previousModTime": 1486054655250,
+        "modified": 1486054655250,
         "seen": true,
         "name": "test123.xdke"
       },
@@ -104,7 +104,7 @@
     },
     "boardFileStatus": {
       "main.js": {
-        "previousModTime": 1486052063783
+        "previousModTime": 1486054727412
       }
     }
   }

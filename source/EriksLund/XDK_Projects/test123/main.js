@@ -43,6 +43,7 @@ var real = [];
 var both,four_both,four_both_weighed = [];
 var hits_per_second = [0,0,0,0];
 var hits_per_second_old = [0,0,0,0];
+var hits_per_second_counter = [0,0,0,0];
 var out_magnitude, out_color, out_fade; //выходные параметры
 var is_hit; //признак удара
 var four_min=0, four_max=0, four_min_value, four_max_value;
@@ -50,18 +51,16 @@ var i,j;
 
 /* настраиваемые параметры */
 
-//вторая частота отключена данными настройками
-var magnitude_param = [1000, 10000, 2000, 3000];
-var magnitude_param_min = [1000, 10000, 2000, 3000];
-var magnitude_param_many_multiplier = [2.5, 2.5, 40, 40];
-var magnitude_param_little_multiplier = [200, 300, 250, 400];
-var magnitude_param_D_multiplier = [10, 10, 100, 80];
-var magnitude_weighed_noise = [4,6,9.7,11];
+var magnitude_param = [2, 3, 3, 3];
+var magnitude_param_min = [2, 3, 3, 3];
+var magnitude_param_many_multiplier = [0.05, 0.1, 2, 2];
+var magnitude_param_little_multiplier = [0.5, 0.5, 0.5, 0.5];
+var magnitude_param_D_multiplier = [0.01, 0.01, 0.01, 0.01];
 //настройки числа ударов по частотным областям
 var hits_per_second_min = [1,1,0,1];//1 1 0 1
-var hits_per_second_max = [4,2,0,3];//4 2 0 3
-var hits_per_second_counter = [0,0,0,0];
+var hits_per_second_max = [5,2,0,3];//4 2 0 3
 var weight = [0.7,1,1.4,1.7]; //ручная настройка выбора области
+var magnitude_weighed_noise = [4,6,9.7,11];
 
 // Будем вызывать функцию через каждые 10 мс
 setInterval(periodicFFT,15);
@@ -98,17 +97,6 @@ function periodicFFT() {
     four_both_weighed.push({x: 3500, y: t3});
     four_both_weighed.push({x: 8000, y: t4});
     
-    //проверка на удар
-    is_hit = false;
-    for (i = 0; i < 4; i++) {
-      if (four_both[i].y > magnitude_param[i]){
-          is_hit = true;
-          hit();
-          hits_per_second_counter[i]++;
-      }
-   }
-    
-    
     //Логарифмируем
     for (j=0; j<4; j++){
         four_both_weighed[j].y = Math.log2(four_both_weighed[j].y);
@@ -117,7 +105,7 @@ function periodicFFT() {
         for (j=0; j<4; j++){
         four_both_weighed[j].y = four_both_weighed[j].y - magnitude_weighed_noise[j];
     }
-    //учитываем вес указанный вручную
+    //учитываем вес, указанный вручную
     for (j=0; j<4; j++){
     four_both_weighed[j].y = four_both_weighed[j].y * weight[j];
     }
@@ -139,13 +127,17 @@ function periodicFFT() {
     }
     //console.log("four_min: " + four_min + " four_max: " + four_max + " four_min_value: " +  four_min_value + " four_max_value: " + four_max_value);
             
-    //применяем ручной вес
+    //проверка на удар максимального пика
+    is_hit = false;
+
+      if (four_both_weighed[0].y > magnitude_param[0]){
+          //console.log("four_both_weighed[0].y: " + four_both_weighed[0].y + "magnitude_param[0]: " + magnitude_param[0]);
+          is_hit = true;
+          hit();
+          hits_per_second_counter[0]++;
+      }
     
     if (is_hit){
-        //выравнивание силы относительно выборанного порога
-        for (j=0; j<4; j++){
-            //four_both_weighed[j].y = four_both_weighed[j].y / magnitude_param[j]* weight[j] / magnitudes_sum;
-        }
         
         //исходное значение было примерно от 0 до 8
         out_magnitude = (four_both_weighed[four_max].y * magnitudes_sum - 1)/7;
@@ -201,9 +193,9 @@ function periodicHits_per_interval(){
             err_dif[j] = hits_per_second[j]-hits_per_second_old[j];
             var overage = (hits_per_second_max[j] - hits_per_second_min[j])/2;
             magnitude_param[j] = magnitude_param[j] + (hits_per_second[j]-overage) * magnitude_param_many_multiplier[j] * many[j];
-            if (err_dif[j]>0) magnitude_param[j] = magnitude_param[j] + magnitude_param_D_multiplier[j]/err_dif[j];
-            //if (j==0) console.log("many hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] /*+ " lin: " + (hits_per_second[j]-2) * magnitude_param_many_multiplier[j] + " dif: " + magnitude_param_D_multiplier[j]/err_dif[j]*/);
-            many[j] = many[j]+ err_dif[j];
+            if (err_dif[j]>0) magnitude_param[j] = magnitude_param[j] + 1/err_dif[j];
+            if (j==0) console.log("many hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + (hits_per_second[j]-2) * magnitude_param_many_multiplier[j] + " dif: " + magnitude_param_D_multiplier[j]/err_dif[j]);
+            many[j] = many[j]+ err_dif[j]*magnitude_param_D_multiplier[j];
         }
         else many[j] = 1;
 
@@ -215,8 +207,8 @@ function periodicHits_per_interval(){
                 magnitude_param[j] = magnitude_param_min[j];
                 little[j] = 1;
             }
-            //if (j==0) console.log("little hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] /*+ " lin: " + little[j]*magnitude_param_little_multiplier[j] + " dif: " + magnitude_param_D_multiplier[j]/err_dif[j]*/);
-            little[j] = little[j] + err_dif[j];
+            if (j==0) console.log("little hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + little[j]*magnitude_param_little_multiplier[j] + " dif: " + 1/err_dif[j]);
+            little[j] = little[j] + err_dif[j]*magnitude_param_D_multiplier[j];
         }
         else little[j] = 1;
     }
