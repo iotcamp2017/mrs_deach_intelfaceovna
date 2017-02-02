@@ -21,6 +21,6 @@ $(document).ready(function(){
                   $( "div#hits_per_second" ).html( "background-color" + "hsl(" + data + ", 100%, 50%)" );
                 });
         });
-    }, 50);
+    }, 200);
     
 });
