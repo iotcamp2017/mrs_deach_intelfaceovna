@@ -1,0 +1,111 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "LICENSE.md": {
+        "previousModTime": 1485955471261,
+        "modified": 1485955471261,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "README.md": {
+        "previousModTime": 1485955471260,
+        "modified": 1485955471260,
+        "seen": true,
+        "name": "README.md"
+      },
+      "icon.png": {
+        "previousModTime": 1485955471262,
+        "modified": 1485955471262,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "main.js": {
+        "previousModTime": 1485980243992,
+        "modified": 1485980243992,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1485974648720,
+        "modified": 1485974648720,
+        "seen": true,
+        "name": "package.json"
+      },
+      "test123.xdk": {
+        "previousModTime": 1485956078063,
+        "modified": 1485956078063,
+        "seen": true,
+        "name": "test123.xdk"
+      },
+      "test123.xdke": {
+        "previousModTime": 1485979444277,
+        "modified": 1485979444277,
+        "seen": true,
+        "name": "test123.xdke"
+      },
+      "websockets_client.png": {
+        "previousModTime": 1485955471262,
+        "modified": 1485955471262,
+        "seen": true,
+        "name": "websockets_client.png"
+      },
+      "xdk-publish-meta-data.json": {
+        "previousModTime": 1485955471768,
+        "modified": 1485955471768,
+        "seen": true,
+        "name": "xdk-publish-meta-data.json"
+      },
+      "client/canvasChart.js": {
+        "previousModTime": 1485960732282,
+        "modified": 1485960732282,
+        "seen": true,
+        "name": "client/canvasChart.js"
+      },
+      "client/index.css": {
+        "previousModTime": 1485955471274,
+        "modified": 1485955471274,
+        "seen": true,
+        "name": "client/index.css"
+      },
+      "client/index.html": {
+        "previousModTime": 1485970539426,
+        "modified": 1485970539426,
+        "seen": true,
+        "name": "client/index.html"
+      },
+      "client/index.js": {
+        "previousModTime": 1485971631437,
+        "modified": 1485971631437,
+        "seen": true,
+        "name": "client/index.js"
+      },
+      "client/jquery-1.6.min.js": {
+        "previousModTime": 1304451926000,
+        "modified": 1304451926000,
+        "seen": true,
+        "name": "client/jquery-1.6.min.js"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1485955471550,
+        "modified": 1485955471550,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1485980246074
+      }
+    }
+  }
+}

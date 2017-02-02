@@ -1,0 +1,15 @@
+{
+  "name": "websockets",
+  "description": "",
+  "version": "0.0.0",
+  "main": "main.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+      "express": "latest",
+      "socket.io":"latest",
+      "fft-js": "latest",
+      "Math": "latest"
+  }
+}
