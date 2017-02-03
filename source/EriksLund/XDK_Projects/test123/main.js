@@ -46,7 +46,7 @@ var hits_per_second_old = [0,0,0,0];
 var hits_per_second_counter = [0,0,0,0];
 var stable_counter = [0,0,0,0];
 var rebuild_counter = [0,0,0,0];
-var out_magnitude, out_color, out_fade; //выходные параметры
+var out_magnitude, out_color, old_out_color, out_fade; //выходные параметры
 var is_hit; //признак удара
 var four_min=0, four_max=0, four_min_value, four_max_value;
 var i,j;
@@ -55,12 +55,12 @@ var i,j;
 
 var magnitude_param = [4, 3, 3, 3];
 var magnitude_param_min = [4, 3, 3, 3];
-var magnitude_param_many_multiplier = [0.1, 0.1, 0.07, 0.07];//умножается на разницу текущего и среднего числа удраров
-var magnitude_param_little_multiplier = [0.4, 0.4, 0.4, 0.3];//вычитается статично
-var magnitude_param_D_multiplier = [0.02, 0.06, 0.06, 0.02];//умножается на разницу текущего и среднего числа ударов и накапливается
+var magnitude_param_many_multiplier = [0.2, 0.1, 0.07, 0.07];//умножается на разницу текущего и среднего числа удраров
+var magnitude_param_little_multiplier = [0.7, 0.4, 0.4, 0.3];//вычитается статично //pitbul - 0.6
+var magnitude_param_D_multiplier = [0.04, 0.06, 0.06, 0.02];//умножается на разницу текущего и среднего числа ударов и накапливается //pitbul -0.03
 //настройки числа ударов по частотным областям
-var hits_per_second_min = [1,1,0,1];//1 1 0 1
-var hits_per_second_max = [5,2,0,3];//4 2 0 3
+var hits_per_second_min = [1,1,1,0];//1 1 0 1
+var hits_per_second_max = [5,5,5,0];//5 2 0 3
 var weight = [0.7,1,1.4,1.7]; //ручная настройка выбора области
 var magnitude_weighed_noise = [4,6,9.7,11];
 var stable_choice=-1;
@@ -219,12 +219,12 @@ function periodicFFT() {
     //окончательный выбор
     if (stable_choice==-1){
         //появляется новый выбор
-         stable_choice = four_max;
+         stable_choice = 1;// four_max;
         stable_counter[stable_choice] = 0;
     }
     else{
         //чтобы сойти с этой дорожки, нужно накопить 3 ошибки или накопить 240 стабильностей - примерно 4 секунды
-        if ((rebuild_counter[stable_choice]>7) || (stable_counter[stable_choice] > 240)){
+        /*if ((rebuild_counter[stable_choice]>7) || (stable_counter[stable_choice] > 240)){
             console.log(stable_counter[stable_choice]);
             stable_choice=-1;
             stable_counter[stable_choice] = 0;
@@ -233,9 +233,9 @@ function periodicFFT() {
         else{
             stable_counter[stable_choice]++;
             //сохраняем предыдущее значение частоты stable_choice
-        }
+        }*/
     }
-    if (stable_choice==-1) stable_choice = four_max;
+    //if (stable_choice==-1) stable_choice = four_max;
     
     //проверка максимального пика на удар
     is_hit = false;
@@ -246,10 +246,11 @@ function periodicFFT() {
     }
     
     if (is_hit){
+        old_out_color = out_color;
         
         //исходное значение four_both_weighed[stable_choice].y примерно от 0 до 8
-        out_magnitude = (four_both_weighed[stable_choice].y - 1)/7;
-        pwm3.write(out_magnitude);
+        out_magnitude = (four_both_weighed[stable_choice].y - 1)/7*100;
+        //pwm3.write(out_magnitude);
 
         out_color = four_both_weighed[stable_choice].y;
 
@@ -263,7 +264,8 @@ function periodicFFT() {
         //console.log("hits_per_second[stable_choice]: " + hits_per_second[stable_choice] + " out_fade: " + out_fade);
         
         //здесь запускать функцию удара
-        //hit();
+        //console.log(out_fade);
+        if (out_color - old_out_color > 5) hit(out_color,out_magnitude,out_fade);
         is_hit = false;
     }
     else{
@@ -273,10 +275,11 @@ function periodicFFT() {
     //myOnboardLed.write(is_hit?1:0);
 }
 
-setInterval(function(){
-hit(Math.random()*360, 100,1000);},2000); 
+//Тест функции hit вручную
+//setInterval(function(){
+//hit(Math.random()*360, 100,1000);},2000); 
 
-//визуализирует удар
+//визуализирует удар 0..360, 0..100, time for fade-out
 function hit(nNum,nLightness,tFall){
 var difference=Math.round((nNum-oldNum)/80),
 lightnessDif = (nLightness - oldLightness)/80;
@@ -293,7 +296,7 @@ var interval1 = setInterval (function (){
     red.write(hitRgb[0]/255);
     green.write(hitRgb[1]/255);
     blue.write(hitRgb[2]/255);
-    console.log('color:', hitRgb,'Lightness',Math.round(oldLightness) );
+    //console.log('color:', hitRgb,'Lightness',Math.round(oldLightness) );
 
     if(counter1 > 80){
 
