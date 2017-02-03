@@ -65,7 +65,91 @@ var weight = [0.7,1,1.4,1.7]; //ручная настройка выбора о�
 var magnitude_weighed_noise = [4,6,9.7,11];
 var stable_choice=-1;
 
-// Будем вызывать функцию через каждые 10 мс
+/* RGB part */
+//Initialize PWM on Digital Pin #3 (D3) and enable the pwm pin
+var red = new mraa.Pwm(3);
+var green = new mraa.Pwm(5);
+var blue = new mraa.Pwm(6);
+red.enable(true);
+green.enable(true);
+blue.enable(true);
+
+//set the period in microseconds.
+red.period_us(2000);
+green.period_us(2000);
+blue.period_us(2000);
+green.pulsewidth_us(10);
+red.pulsewidth_us(10);
+var value = 0.0;
+
+var _rgb = ConvertRangeToRGB(0,100);
+console.log(_rgb);
+red.write(_rgb[0]/255);
+green.write(_rgb[1]/255);
+blue.write(_rgb[2]/255);
+
+//Merry Christmas mode
+/*var i=1;
+while (true){
+
+_rgb = ConvertRangeToRGB(i,100);
+console.log(_rgb);
+red.write(_rgb[0]/255);
+green.write(_rgb[1]/255);
+blue.write(_rgb[2]/255);
+i=i+1;
+if (i>360) {i=1}
+}*/
+
+function HSLToRGB(h, s, l){
+var r, g, b;
+
+if(s == 0){
+    r = g = b = l; // achromatic
+}else{
+    var hue2rgb = function hue2rgb(p, q, t){
+        if(t < 0) t += 1;
+        if(t > 1) t -= 1;
+        if(t < 1/6) return p + (q - p) * 6 * t;
+        if(t < 1/2) return q;
+        if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+    }
+
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+    }
+
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+function ConvertRangeToRGB(num, lightness){ 
+    // console.log((num/360), 1, lightness/100*.5);
+    return HSLToRGB((num/360), 1, lightness/100*.5); //was num/100*360
+}
+
+/*var val = 100;
+var dif = 1;
+setInterval(function () {
+if ((val < 1)||(val > 100)) {dif = -dif;}
+
+_rgb1 = ConvertRangeToRGB(122,val);
+val = val -dif;
+console.log(val);
+red.write(_rgb1[0]/255);
+green.write(_rgb1[1]/255);
+blue.write(_rgb1[2]/255);
+}, 100);
+*/
+
+var oldNum=0,
+oldLightness = 0;
+
+
+// Будем вызывать функцию анализа спектра через каждые 15 мс
 setInterval(periodicFFT,15);
 function periodicFFT() {
     for (i = 0; i < 128; i++){
@@ -179,7 +263,7 @@ function periodicFFT() {
         //console.log("hits_per_second[stable_choice]: " + hits_per_second[stable_choice] + " out_fade: " + out_fade);
         
         //здесь запускать функцию удара
-        hit();
+        //hit();
         is_hit = false;
     }
     else{
@@ -189,9 +273,48 @@ function periodicFFT() {
     //myOnboardLed.write(is_hit?1:0);
 }
 
+setInterval(function(){
+hit(Math.random()*360, 100,1000);},2000); 
+
 //визуализирует удар
-function hit(){
-    
+function hit(nNum,nLightness,tFall){
+var difference=Math.round((nNum-oldNum)/80),
+lightnessDif = (nLightness - oldLightness)/80;
+//За 20 итераций плавно приходим по цвету к новому - nNumп приблизительно
+
+var counter1 = 0;
+
+var interval1 = setInterval (function (){
+    counter1++;
+    curLightness = oldLightness;
+    hitRgb = ConvertRangeToRGB(oldNum, Math.round(oldLightness));
+    oldNum = oldNum+difference;
+    oldLightness = oldLightness + lightnessDif;
+    red.write(hitRgb[0]/255);
+    green.write(hitRgb[1]/255);
+    blue.write(hitRgb[2]/255);
+    console.log('color:', hitRgb,'Lightness',Math.round(oldLightness) );
+
+    if(counter1 > 80){
+
+        clearInterval(interval1);
+        oldNum = nNum;
+
+        var Interval2 = setInterval(function () {
+        hitRgb = ConvertRangeToRGB(nNum,nLightness);
+        nLightness = nLightness-1;
+        red.write(hitRgb[0]/255);
+        green.write(hitRgb[1]/255);
+        blue.write(hitRgb[2]/255);
+        //console.log('color:', hitRgb,'Lightness',nLightness);
+        oldLightness = nLightness;
+        if ((nLightness < 1) || (is_hit==true)) {clearInterval(Interval2);}
+        }, Math.round(tFall/nLightness));
+
+    }
+},0.5);
+// новый цвет затухает
+
 }
 
 // Рассчитывает количество ударов в секунду hits_per_second
