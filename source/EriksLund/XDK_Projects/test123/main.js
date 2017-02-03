@@ -113,21 +113,21 @@ function periodicFFT() {
     }
     
     // поиск минимума и максимума из 4 областей
-    four_min = 3;
-    four_max = 3;
-    four_min_value = four_both_weighed[3].y;
-    four_max_value = four_both_weighed[3].y;
-//    for (j=1; j<4; j++){
-//        if (four_both_weighed[j].y > four_max_value){
-//            four_max_value = four_both_weighed[j].y;
-//            four_max = j;
-//        }
-//        if (four_both_weighed[j].y < four_min_value){
-//            four_min_value = four_both_weighed[j].y;
-//            four_min = j;
-//        }
-//    }
-    //console.log("four_min: " + four_min + " four_max: " + four_max + " four_min_value: " +  four_min_value + " four_max_value: " + four_max_value);
+    four_min = 0;
+    four_max = 0;
+    four_min_value = four_both_weighed[0].y;
+    four_max_value = four_both_weighed[0].y;
+    for (j=1; j<4; j++){
+        if (four_both_weighed[j].y > four_max_value){
+            four_max_value = four_both_weighed[j].y;
+            four_max = j;
+        }
+        if (four_both_weighed[j].y < four_min_value){
+            four_min_value = four_both_weighed[j].y;
+            four_min = j;
+        }
+    }
+    console.log("four_min: " + four_min + " four_max: " + four_max + " four_min_value: " +  four_min_value + " four_max_value: " + four_max_value);
     
     //проверка максимального пика на удар
     is_hit = false;
@@ -152,7 +152,7 @@ function periodicFFT() {
         
         if (hits_per_second[four_max]>0) out_fade = 1/hits_per_second[four_max]*1000;
         else out_fade = 1000;
-        console.log("hits_per_second[four_max]: " + hits_per_second[four_max] + " out_fade: " + out_fade);
+        //console.log("hits_per_second[four_max]: " + hits_per_second[four_max] + " out_fade: " + out_fade);
         
         //здесь запускать функцию удара
         hit();
@@ -189,7 +189,7 @@ function periodicHits_per_interval(){
             err_dif[j] = hits_per_second[j]-hits_per_second_old[j];
             var overage = (hits_per_second_max[j] - hits_per_second_min[j])/2;
             magnitude_param[j] = magnitude_param[j] + (hits_per_second[j]-overage) * magnitude_param_many_multiplier[j] + many[j];
-            if (j==3) console.log("many hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + (hits_per_second[j]-2) * magnitude_param_many_multiplier[j] + " dif: " + many[j]);
+            //console.log("many hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + (hits_per_second[j]-2) * magnitude_param_many_multiplier[j] + " dif: " + many[j]);
             many[j] = many[j]+ err_dif[j]*magnitude_param_D_multiplier[j];
         }
         else many[j] = 0;
@@ -201,7 +201,7 @@ function periodicHits_per_interval(){
                 magnitude_param[j] = magnitude_param_min[j];
                 little[j] = 0;
             }
-            if (j==3) console.log("little hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + magnitude_param_little_multiplier[j] + " dif: " + many[j]);
+            //console.log("little hits in " + j + ": " + hits_per_second[j] + " magnitude_param: " + magnitude_param[j] + " lin: " + magnitude_param_little_multiplier[j] + " dif: " + many[j]);
             little[j] = little[j] + err_dif[j]*magnitude_param_D_multiplier[j]*2;
         }
         else little[j] = 0;
