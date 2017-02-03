@@ -44,6 +44,8 @@ var both,four_both,four_both_weighed = [];
 var hits_per_second = [0,0,0,0];
 var hits_per_second_old = [0,0,0,0];
 var hits_per_second_counter = [0,0,0,0];
+var stable_counter = [0,0,0,0];
+var rebuild_counter = [0,0,0,0];
 var out_magnitude, out_color, out_fade; //выходные параметры
 var is_hit; //признак удара
 var four_min=0, four_max=0, four_min_value, four_max_value;
@@ -61,6 +63,7 @@ var hits_per_second_min = [1,1,0,1];//1 1 0 1
 var hits_per_second_max = [5,2,0,3];//4 2 0 3
 var weight = [0.7,1,1.4,1.7]; //ручная настройка выбора области
 var magnitude_weighed_noise = [4,6,9.7,11];
+var stable_choice=-1;
 
 // Будем вызывать функцию через каждые 10 мс
 setInterval(periodicFFT,15);
@@ -127,32 +130,53 @@ function periodicFFT() {
             four_min = j;
         }
     }
-    console.log("four_min: " + four_min + " four_max: " + four_max + " four_min_value: " +  four_min_value + " four_max_value: " + four_max_value);
+    //console.log("four_min: " + four_min + " four_max: " + four_max + " four_min_value: " +  four_min_value + " four_max_value: " + four_max_value);
+    
+    //окончательный выбор
+    if (stable_choice==-1){
+        //появляется новый выбор
+         stable_choice = four_max;
+        stable_counter[stable_choice] = 0;
+    }
+    else{
+        //чтобы сойти с этой дорожки, нужно накопить 3 ошибки или накопить 240 стабильностей - примерно 4 секунды
+        if ((rebuild_counter[stable_choice]>7) || (stable_counter[stable_choice] > 240)){
+            console.log(stable_counter[stable_choice]);
+            stable_choice=-1;
+            stable_counter[stable_choice] = 0;
+            rebuild_counter[stable_choice] = 0;
+        }
+        else{
+            stable_counter[stable_choice]++;
+            //сохраняем предыдущее значение частоты stable_choice
+        }
+    }
+    if (stable_choice==-1) stable_choice = four_max;
     
     //проверка максимального пика на удар
     is_hit = false;
-    if (four_both_weighed[four_max].y > magnitude_param[four_max]){
+    if (four_both_weighed[stable_choice].y > magnitude_param[stable_choice]){
         //console.log("four_both_weighed[0].y: " + four_both_weighed[0].y + "magnitude_param[0]: " + magnitude_param[0]);
         is_hit = true;
-        hits_per_second_counter[four_max]++;
+        hits_per_second_counter[stable_choice]++;
     }
     
     if (is_hit){
         
-        //исходное значение four_both_weighed[four_max].y примерно от 0 до 8
-        out_magnitude = (four_both_weighed[four_max].y - 1)/7;
+        //исходное значение four_both_weighed[stable_choice].y примерно от 0 до 8
+        out_magnitude = (four_both_weighed[stable_choice].y - 1)/7;
         pwm3.write(out_magnitude);
 
-        out_color = four_both_weighed[four_max].y;
+        out_color = four_both_weighed[stable_choice].y;
 
         //console.log("sum: " + sum + " out_color: " + out_color);
         out_color = (out_color*(sum - 5)/20/8*90);
         //console.log(" out_color: " + out_color);
-        out_color = out_color + 90*four_max;
+        out_color = out_color + 90*stable_choice;
         
-        if (hits_per_second[four_max]>0) out_fade = 1/hits_per_second[four_max]*1000;
+        if (hits_per_second[stable_choice]>0) out_fade = 1/hits_per_second[stable_choice]*1000;
         else out_fade = 1000;
-        //console.log("hits_per_second[four_max]: " + hits_per_second[four_max] + " out_fade: " + out_fade);
+        //console.log("hits_per_second[stable_choice]: " + hits_per_second[stable_choice] + " out_fade: " + out_fade);
         
         //здесь запускать функцию удара
         hit();
@@ -185,6 +209,7 @@ function periodicHits_per_interval(){
     
     //изменяем порог при слишком частых или редких ударах
         if (hits_per_second[j] > hits_per_second_max[j]){
+            rebuild_counter[j]++;
             //console.log("j: " + j + " hits_per_second[j]: " + hits_per_second[j] + " hits_per_second_max[j]: " +  hits_per_second_max[j]);
             err_dif[j] = hits_per_second[j]-hits_per_second_old[j];
             var overage = (hits_per_second_max[j] - hits_per_second_min[j])/2;
@@ -195,6 +220,7 @@ function periodicHits_per_interval(){
         else many[j] = 0;
 
         if (hits_per_second[j] < hits_per_second_min[j]){
+            rebuild_counter[j]++;
             err_dif[j] = hits_per_second_old[j]-hits_per_second[j];
             magnitude_param[j] = magnitude_param[j] - magnitude_param_little_multiplier[j] - little[j];
             if (magnitude_param[j] < magnitude_param_min[j]){
