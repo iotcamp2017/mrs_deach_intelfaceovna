@@ -1,0 +1,1206 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Jaap html Template
+    Author: BootExperts
+    Author URI: http://bootexperts.com
+    Version: 1.0
+    website: http://bootexperts.com
+    Description: This theme made for any kind of portfolio site.
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+    
+    Base or Reset or common css are in reset.css file
+
+    1.  Header CSS
+    2.  start Feature CSS
+    3.  start Experties CSS
+    4.  start Creative Team CSS
+    5.  start Our Services CSS
+    6.  start Our Work CSS
+    7.  Start Our Clients CSS
+    8.  Start Blog CSS
+    9.  Start Footer CSS
+    10. start project-page slider CSS
+    11. Start project-page project-info CSS
+    12. Start project-page portfolio section CSS
+
+    
+
+-----------------------------------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+1.         Start home & portfolio-details Header CSS
+-----------------------------------------------------------*/
+.jaap .header_inner {
+  z-index: 9999;
+}
+.header_logo {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.jaap .header_logo {
+  margin-bottom: -96px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -99;
+}
+.jaap .mainu_menu {
+  background: rgba(0, 0, 0, 0.4);
+}
+.min-height-0{
+  min-height: 0px;
+}
+a, .uk-link{
+    color: #fff;
+}
+a:hover, a:focus{
+    color: #ffd400;
+}
+html, body {
+  height: 100%;
+}
+.main_slider_area, .main_slide_owl, .portfolio_slide_owl{
+    height: 100%;
+}
+.main_slider_area .owl-stage-outer, .main_slider_area .owl-stage, .main_slider_area .owl-item{
+    height: 100%;
+}
+.main_slider_area .single_slide_bg{
+    height: 100%;
+    position: relative;
+    background-size: cover;
+}
+.main_slider_area .single_slide_bg:after{
+    background: black none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.slider_caption{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    z-index: 2;
+    left: 0;
+    top: calc(50% - 252px/2);
+}
+.slider_caption h2{
+  color: #ffd400;
+  font-family: "Roboto Slab",serif;
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.slider_caption h1{
+  color: #fff;
+  font-family: "Roboto Slab",serif;
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 75px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+.slider_caption h3{
+  color: #fff;
+  font-family: "Roboto Slab",serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 40px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.main_slider_area .go_down {
+  border-radius: 50%;
+  display: block;
+  height: 90px;
+  margin: 32px auto;
+  width: 90px;
+}
+.main_slider_area .go_down:hover{
+  background-color: #000;
+}
+
+.mainu_menu {
+  width: 100%;
+  transition: background .5s ease;
+}
+#main-nav {
+  position: absolute;
+  top: -2px;
+  z-index: 99;
+  left: 0;
+  text-align: center;
+}
+#main-nav li a{
+    background: transparent;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+#main-nav li a:hover{
+    color: #ffd400;
+}
+#main-nav li.current a{
+  color: #ffd400;
+}
+#main-nav .nav.navbar-nav {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+#main-nav .nav.navbar-nav:before {
+  background-color: rgba(51, 51, 51, 0.3);
+  content: "";
+  height: 2px;
+  position: absolute;
+  right: 79%;
+  top: 50%;
+  width: 10000px;
+}
+#main-nav .nav.navbar-nav:after {
+  position: absolute;
+  content: "";
+  left: 79%;
+  top: 50%;
+  width: 10000px;
+  height: 2px;
+  background-color: rgba(51, 51, 51, 0.3);
+}
+#main-nav .uk-active .nav.navbar-nav:before, #main-nav .uk-active .nav.navbar-nav:after{
+  display: none;
+}
+#main-nav .nav.navbar-nav li{
+  float: none;
+  display: inline-block;
+}
+.uk-active{
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+}
+.uk-active .main_menu::before {
+  background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+  content: "";
+  height: 50px;
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 10000px;
+}
+.uk-active .main_menu::after {
+  background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+  content: "";
+  height: 50px;
+  right: 100%;
+  position: absolute;
+  top: 0;
+  width: 10000px;
+}
+.uk-sticky-placeholder{
+    width: 100%;
+}
+
+
+
+/* --------------------------------------------------------
+            End home & portfolio-details Header CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+2.                     start Feature CSS
+-----------------------------------------------------------*/
+
+.feature {
+  text-align: center;
+}
+.feature .section_title span {
+  font-weight: 700;
+  color: #ffd400;
+}
+.feature .section_title > p {
+  font-size: 35px;
+  color: #0c0b09;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+}
+.single_feature i {
+    background: #ffd400 none repeat scroll 0 0;
+    border: 8px solid #ffd400;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 40px;
+    margin-bottom: 28px;
+    padding: 42px;
+    text-align: center;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.25s ease 0s;
+    -o-transition: all 0.25s ease 0s;
+    transition: all 0.25s ease 0s;
+}
+.single_feature i:hover {
+  background: #ffd400 none repeat scroll 0 0;
+  border: 8px solid #F4CB02;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+.single_feature > p {
+    margin: 11px 0;
+}
+
+
+
+/* --------------------------------------------------------
+                      End Feature CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+3.                      start Experties CSS
+-----------------------------------------------------------*/
+
+.experties {
+  margin: 0 auto;
+  width: 62%;
+}
+.experties .section_title > h2 {
+  text-align: center;
+  font-weight: 700;
+}
+.experties .progress{
+    overflow: visible;
+}
+.experties .progress-bar {
+  background-color: #ffd400;
+  position: relative;
+}
+.experties .progress-bar > span {
+    border: 1px solid #131e2a;
+    color: #131e2a;
+    padding: 5px 12px;
+    position: absolute;
+    right: -4%;
+    top: -206%;
+	z-index:99999;
+	opacity:1;
+	transition:opacity .5s;
+	cursor:default !important;
+}
+
+.experties .progress-bar:hover > span{
+	opacity:.5;
+}
+
+.experties .progress-bar > span::before {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #131e2a;
+  bottom: -7px;
+  content: "";
+  height: 0;
+  left: 18px;
+  position: absolute;
+  width: 0;
+}
+.experties .progress-bar > span::after {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #fff;
+  bottom: -5px;
+  content: "";
+  height: 0;
+  left: 18px;
+  position: absolute;
+  width: 0;
+}
+.experties .single_experties > p {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+/* --------------------------------------------------------
+                      end Experties CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+4.                      start Creative Team CSS
+-----------------------------------------------------------*/
+
+.creative_team_area .creative_team_bg {
+  background: rgba(0, 0, 0, 0) url("img/creative-team-bg.jpg") no-repeat center center / cover;
+}
+.creative_team_area .creative_team_bg > h1 {
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+  font-weight: 700;
+}
+.creative_team .single_creative_team {
+  position: relative;
+}
+.creative_team .team_member_info {
+  bottom: 4%;
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.creative_team .team_member_social > ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+.creative_team .team_member_social li {
+  display: inline-block;
+}
+.creative_team .team_member_text > h4 {
+  font-weight: 700;
+}
+.creative_team .team_member_text > p {
+  color: #fff;
+  font-weight: 700;
+  margin: 8px 0;
+  text-transform: uppercase;
+}
+.team_member_social i {
+  font-size: 18px;
+}
+.creative_team .team_member_social li{
+    margin-left: 14px;
+}
+.creative_team .team_member_social a {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  width: 45px;
+}
+.creative_team .team_member_social li:hover a{
+    background: #000;
+    color: #ffd400;
+    border: 1px solid #fff;
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+}
+.creative_team_area .creative_team_bottom {
+    background: rgba(0, 0, 0, 0) url("img/creative-team-bottom.png") no-repeat center center / cover;
+    text-align: center;
+}
+.creative_team_area .creative_team_bottom > p {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  width: 76%;
+}
+
+
+/* --------------------------------------------------------
+                      end Creative Team CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+5.                      start Our Services CSS
+-----------------------------------------------------------*/
+
+
+.services_caro .owl-carousel .owl-stage-outer {
+  margin-top: 133px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 999;
+  padding-top: 20px;
+}
+.our_services_bottom .item {
+  text-align: center;
+}
+.our_services_bottom .services_caro {
+  position: relative;
+}
+.services_caro .item img {
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+}
+.services_caro .item:hover img {
+  -webkit-filter: none;
+  -o-filter: none;
+  filter: none;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.services_caro i {
+    background: #f4f4f4 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 700;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    width: 65px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.services_caro i:hover {
+  color: #fff;
+  background: #ffd400;
+}
+.services_caro_area {
+  padding-bottom: 90px;
+}
+.services_caro .owl-prev {
+  left: calc(50% - 100px);
+  position: absolute;
+  top: calc(-50% + 10px);
+}
+.services_caro .owl-next {
+    position: absolute;
+    right: calc(50% - 100px);
+    top: calc(-50% + 10px);
+}
+.our_services_top .section_title > h1 {
+  margin-bottom: 44px;
+  font-weight: 700;
+}
+.our_services_top .section_content > p {
+  color: #131e2a;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+  width: 86%;
+}
+.our_services_bottom .item_details > h4 {
+    font-weight: 700;
+    margin: 44px 0 19px;
+}
+.our_services_bottom .item_details > p{
+    margin: 0;
+}
+.carousel_reloader > a {
+  background: #f4f4f4 none repeat scroll 0 0;
+  border-radius: 50%;
+  display: block;
+  height: 64px;
+  line-height: 64px;
+  margin: 0 auto;
+  text-align: center;
+  width: 64px;
+}
+.carousel_reloader > a:hover{
+  background: #ffd400 none repeat scroll 0 0;
+}
+
+
+
+/* --------------------------------------------------------
+                      End Our Services CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+6.                      start Our Work CSS
+-----------------------------------------------------------*/
+
+.our_work_trigger ul{
+    text-align: center;
+}
+.our_work_trigger ul li{
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 43px;
+    height: 43px;
+    color: #0a0a0a;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.our_work_trigger ul li:hover, .our_work_trigger ul li.active{
+    cursor: pointer;
+    color: #ffd400;
+}
+.our_work_trigger ul li > span {
+  margin: 0 11px;
+  color: #0a0a0a;
+}
+.work_all_item {
+  margin-top: 50px;
+}
+.single_our_work{
+  cursor: pointer;
+  margin-top: 30px;
+}
+.sing_work_photo{
+    position: relative;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.sing_work_photo figure img {
+  min-height: 315px;
+  max-height: 315px;
+}
+.sing_work_photo figure {
+  position: relative;
+  margin: 0;
+}
+.sing_work_photo figure .fig_border {
+  border: 1px solid #b5b5b5;
+  content: "";
+  height: 77%;
+  left: 0;
+  margin: 5%;
+  position: absolute;
+  top: 0;
+  width: 90.3%;
+}
+.sing_work_photo.small figure .fig_border {
+  border: 1px solid #b5b5b5;
+  box-sizing: border-box;
+  content: "";
+  height: 77%;
+  left: 0;
+  margin: 10%;
+  position: absolute;
+  top: 0;
+  width: 80.3%;
+}
+.sing_work_photo:hover figure .fig_border{
+  border: 1px solid #ffd400;
+}
+
+.sing_work_caption{
+    background: rgba( 35, 24, 13, 0.5 );
+    border-radius: 50%;
+    height: 200px;
+    left: calc(50% - 100px);
+    line-height: 200px;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    top: calc(50% - 100px);
+    width: 200px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.sing_work_photo:hover .sing_work_caption{
+    background: rgba(255, 212, 0, 1) none repeat scroll 0 0;
+}
+.sing_work_border {
+  border: 1px solid rgba(181, 181, 181, 0.5);
+  content: "";
+  height: calc(100% - 70px);
+  left: 35px;
+  position: absolute;
+  top: 35px;
+  width: calc(100% - 70px);
+}
+.sing_work_photo:hover .sing_work_border{
+  border: 1px solid #ffd400;
+}
+.sing_work_photo .search {
+  background: rgba(255, 212, 0, 1) none repeat scroll 0 0;
+  border-radius: 50%;
+  bottom: calc(12% - 20px);
+  font-size: 18px;
+  height: 38px;
+  line-height: 35px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 38px;
+  z-index: 9;
+}
+.sing_work_photo:hover .sing_work_border .search{
+  opacity: 1;
+  right: calc(9% - 17px);
+}
+.sing_work_photo.small:hover .sing_work_border .search {
+  bottom: calc(21% - 17px);
+  opacity: 1;
+  right: calc(18% - 17px);
+}
+.sing_work_photo .search:hover {
+  color: #111;
+}
+
+.work_all_item .mix {
+  display: none;
+}
+.sing_work_caption > p {
+  color: rgba(181, 181, 181, 0.9);
+  font-family: "Roboto Slab",serif;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.sing_work_photo:hover .sing_work_caption > p{
+  color: #fff;
+}
+.sing_work_photo:hover .sing_work_caption > p > a{
+  color: #fff;
+}
+.Rx-width-50 {
+  -webkit-animation-name: Rx-width-50;
+  -o-animation-name: Rx-width-50;
+  animation-name: Rx-width-50;
+  animation-fill-mode: forwards;
+}
+
+.Rx-width-75 {
+  -webkit-animation-name: Rx-width-75;
+  -o-animation-name: Rx-width-75;
+  animation-name: Rx-width-75;
+  animation-fill-mode: forwards;
+}
+
+.Rx-width-65 {
+  /*-webkit-animation-name: Rx-width-65;
+  animation-name: Rx-width-65;*/  
+  -webkit-animation-name: Rx-width-65;
+  -o-animation-name: Rx-width-65;
+  animation-name: Rx-width-65;
+  animation-fill-mode: forwards;
+}
+
+.Rx-width-60 {
+  -webkit-animation-name: Rx-width-60;
+  -o-animation-name: Rx-width-60;
+  animation-name: Rx-width-60;
+  animation-fill-mode: forwards;
+}
+
+/* --------------------------------------------------------
+                      End Our Work CSS
+-----------------------------------------------------------*/
+
+/* --------------------------------------------------------
+7.                      Start Our Clients CSS
+-----------------------------------------------------------*/
+
+.our_clients .section_content a {
+  border: 2px solid #eaeced;
+  display: block;
+  text-align: center;
+}
+.our_clients .section_content a:hover{
+  background: #f4f4f4;
+}
+
+
+/* --------------------------------------------------------
+                      End Our Clients CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+8.                      Start Blog CSS
+-----------------------------------------------------------*/
+
+
+.single-blog{
+    position: relative;
+    cursor: pointer;
+}
+.blog-img{
+
+}
+.blog-img:before {
+  background-color: #000;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+}
+.single-blog:hover .blog-img:before{
+    opacity: 0.4;
+}
+
+.blog-text{
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    height: 80%;
+    left: 10%;
+    opacity: 0;
+    padding: 14% 6%;
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    width: 80%;
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.single-blog:hover .blog-text{
+    opacity:1;
+}
+.blog-text h2{
+    color: #f7f8f9;
+    font-size: 25px;
+    font-weight: 600;
+}
+.blog-text p{
+  font-size: 14px;
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: #fff;
+}
+.blog_post .section_title {
+  margin-bottom: 50px;
+}
+.blog_cat > div {
+  display: inline-block;
+}
+.post_cat {
+  line-height: 13px;
+}
+.post_date {
+  line-height: 17px;
+}
+.post_date > p {
+  margin: 0;
+}
+.post_date > p::after {
+  content: "|";
+}
+.blog_cat p, .post_cat a{
+  font-size: 11px;
+}
+.blog_cat i {
+  margin-right: 5px;
+}
+
+
+/* --------------------------------------------------------
+                      End Blog CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+9.                     Start Footer CSS
+-----------------------------------------------------------*/
+
+.footer_area{
+    background: url("img/footer-bg.jpg") no-repeat scroll center center / cover  rgba(0, 0, 0, 0);
+    text-align: center;
+    background-attachment: fixed;
+}
+.footer_area .section_title > h1 {
+  color: #ffd400;
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 51px;
+}
+.footer_area .section_title > p {
+  color: #fff;
+  font-weight: 700;
+  margin: 28px 225px 0;
+}
+.footer_area .form-control {
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #6f6f6f;
+}
+.footer_contact .section_title > h4 {
+  color: #fff;
+}
+.footer_contact .form-group {
+  font-family: "Open Sans",sans-serif;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.footer_contact .submit_button {
+  text-align: center;
+  margin-bottom: 0;
+}
+.left_input input {
+  color: #fff;
+  height: 65px;
+  line-height: 65px;
+  padding: 7px 20px;
+  text-indent: 10px;
+  width: 100%;
+}
+textarea#message {
+  height: 172px;
+  padding: 20px;
+}
+.footer_contact .right_input textarea.form-control, .footer_contact .left_input input.form-control{
+  font-weight: 700;
+  color: #fff;
+}
+.footer_contact .right_input ::-webkit-input-placeholder, .footer_contact .left_input ::-webkit-input-placeholder{ /* WebKit browsers */
+    color: #fff;
+    text-transform: uppercase;
+}
+.footer_contact .right_input ::-moz-placeholder, .footer_contact .left_input ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;
+    opacity:  1;
+    text-transform: uppercase;
+}
+.address_area li, .hotline_area li {
+  color: #fff;
+  font-family: "Open Sans",sans-serif;
+  font-weight: 300;
+  margin: 7px 0;
+  text-transform: uppercase;
+}
+.social_icons ul, .footer_menu ul, .address_area ul, .hotline_area ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.social_icons ul li, .footer_menu ul li{
+    display: inline-block;
+}
+.social_icons ul li a, .footer_menu ul li a{
+    text-decoration: none;
+}
+.social_icons a {
+  border-radius: 50%;
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  width: 35px;
+  background: #838383;
+  margin: 0 11px;
+}
+.social_icons a i{
+    color: #0e2617;
+    -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+}
+.social_icons a:hover i{
+    color: #ffd400;
+}
+.social_icons > ul {
+  display: inline-block;
+  position: relative;
+}
+.social_icons > ul::before {
+  background-color: #000;
+  content: "";
+  height: 1px;
+  position: absolute;
+  right: calc(50% + 160px);
+  top: 50%;
+  width: 10000px;
+}
+.social_icons > ul::after {
+  background-color: #000;
+  content: "";
+  height: 1px;
+  position: absolute;
+  left: calc(50% + 160px);
+  top: 50%;
+  width: 10000px;
+}
+.footer_menu a {
+  font-family: "Open Sans",sans-serif;
+  font-weight: 700;
+  margin: 0 17px;
+  text-transform: uppercase;
+}
+.footer_menu ul li.active a{
+  color: #ffd400;
+}
+.contact_area{
+  position: relative;
+  overflow: hidden;
+}
+.contact_area::after {
+  background: #666e6b none repeat scroll 0 0;
+  content: "";
+  height: 150%;
+  left: calc(50% - 3px);
+  position: absolute;
+  top: -24%;
+  -webkit-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+  transform: rotate(20deg);
+  width: 3px;
+}
+.address_area {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.hotline_area{
+    text-align: left;
+    margin-left: 30px;
+}
+.footer_copyright > p, .footer_copyright a {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+}
+.footer_copyright a:hover{
+  color: #ffd400;
+}
+
+
+/* --------------------------------------------------------
+                     End Footer CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+10.             start project-page slider CSS
+-----------------------------------------------------------*/
+
+/*.portfolio_slide, div#header_full_width_slider, div#header_full_width_slider .carousel-inner, div#header_full_width_slider .carousel-inner .item, div#header_full_width_slider .single_slider {
+  height: 100%;
+}*/
+body#project-page .main_slider_area {
+  height: auto;
+}
+div#header_full_width_slider .single_slider{
+  background-position: center center;
+  background-size: cover;
+  -webkit-transition: all 10s ease 0s;
+  -o-transition: all 10s ease 0s;
+  transition: all 10s ease 0s;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}
+div#header_full_width_slider .single_slider .container{
+  position: relative;
+}
+.portfolio_slide .slider_ctrl.left {
+  bottom: calc( 0% + 120px );
+  left: calc(50% - 45px);
+  position: absolute;
+  /*z-index: 999;*/
+}
+.portfolio_slide .slider_ctrl i{
+  color: #fff;
+  font-size: 42px;
+  line-height: 26px;
+}
+.portfolio_slide .slider_ctrl.right {
+  bottom: calc( 0% + 120px );
+  position: absolute;
+  right: calc(50% - 45px);
+  /*z-index: 999;*/
+}
+.portfolio_slide .carousel-indicators li {
+  width: 10px;
+  height: 10px;
+  display: block;
+  -webkit-backface-visibility: visible;
+  -webkit-transition: opacity 200ms ease;
+  -moz-transition: opacity 200ms ease;
+  -ms-transition: opacity 200ms ease;
+  -o-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border: 1.5px solid #fff;
+  border-radius: 0px;
+  bottom: 0;
+  margin: 3px;
+  position: absolute;
+  /*z-index: 99;*/
+}
+.portfolio_slide .carousel-indicators {
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.portfolio_slide:hover .carousel-indicators {
+  opacity: 1;
+}
+.portfolio_slide .carousel-indicators li:nth-child(1){
+  bottom: calc( 0% + 103px );
+  left: calc(50% - 15px);
+}
+.portfolio_slide .carousel-indicators li:nth-child(2){
+  bottom: calc(0% + 103px);
+  left: calc(50% - 0px);
+}
+.portfolio_slide .carousel-indicators li:nth-child(3){
+  bottom: calc(0% + 88px);
+  left: calc(50% - 15px);
+}
+.portfolio_slide .carousel-indicators li:nth-child(4){
+  bottom: calc( 0% + 88px );
+  left: calc(50% - 0px);
+}
+.portfolio_slide .carousel-caption {
+  top: calc(50% - 115px / 2);
+}
+.portfolio_slide .carousel-caption > h1 {
+  font-size: 45px;
+  line-height: 55px;
+  color: #fff;
+}
+body#project-page #main-nav .nav.navbar-nav::before{
+  right: 79%;
+}
+body#project-page #main-nav .nav.navbar-nav::after{
+  left: 79%;
+}
+
+
+/* --------------------------------------------------------
+                 End project-page slider CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+11.              Start project-page project-info CSS
+-----------------------------------------------------------*/
+
+.project_info_details > h4 {
+  color: #545353;
+  font-family: "Open Sans",sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.project_info_details > p {
+  border-top: 1px solid #d5d5d5;
+  color: #545353;
+  font-size: 14px;
+  margin-bottom: 100px;
+  margin-top: 17px;
+  padding-top: 21px;
+}
+.project_info ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+.project_info .table > thead > tr > th, .project_info .table > tbody > tr > th, .project_info .table > tfoot > tr > th, .project_info .table > thead > tr > td, .project_info .table > tbody > tr > td, .project_info .table > tfoot > tr > td{
+  border: none;
+  padding-left: 0px;
+  color: #545353;
+  font-size: 14px;
+  font-family: "Open Sans",sans-serif;
+}
+.project_info .table > tbody > tr > td >a{
+  color: #ffd400;
+}
+.project_info .table > tbody > tr > td >a:hover{
+  text-decoration: underline;
+}
+.portfolio_social li {
+  display: inline-block;
+}
+.portfolio_social span{
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Open Sans",sans-serif;
+  color: #000000;
+  float: left;
+}
+.portfolio_social a i{
+  color: #000000;
+  font-size: 18px;
+  line-height: 29px;
+  margin-left: 22px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.portfolio_social a i:hover{
+  color: #ffd400;
+}
+.portfolio_social {
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  padding: 8px 0;
+}
+
+
+
+/* --------------------------------------------------------
+                 End project-page project-info CSS
+-----------------------------------------------------------*/
+
+
+/* --------------------------------------------------------
+12.          Start project-page portfolio section CSS
+-----------------------------------------------------------*/
+.portfolio_section {
+  border-top: 1px solid #e5e5e5;
+  margin-top: 70px;
+  padding-top: 70px;
+}
+.single_portfolio h5 {
+  color: #545353;
+  font-family: "Open Sans",sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-top: 23px;
+  text-transform: none;
+}
+.single_portfolio > p{
+  margin: 0;
+  line-height: 15px;
+}
+.single_portfolio > p > a {
+  color: #545353;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.single_portfolio:hover p a{
+  color: #ffd400;
+}
+
+/* --------------------------------------------------------
+            End project-page portfolio section CSS
+-----------------------------------------------------------*/
+
+
+.margin-top-350{
+	margin-top:350px;
+}

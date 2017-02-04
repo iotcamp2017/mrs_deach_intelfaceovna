@@ -1,0 +1,423 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "initialAutoPluginCount": 0,
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      ".gitignore": {
+        "previousModTime": 1485951594079,
+        "modified": 1485951594079,
+        "seen": true,
+        "name": ".gitignore"
+      },
+      "API_Interface.xdk": {
+        "previousModTime": 1486026630582,
+        "modified": 1486026630582,
+        "seen": true,
+        "name": "API_Interface.xdk"
+      },
+      "API_Interface.xdke": {
+        "previousModTime": 1486113239518,
+        "modified": 1486113239518,
+        "seen": true,
+        "name": "API_Interface.xdke"
+      },
+      "LICENSE.md": {
+        "previousModTime": 1485804933927,
+        "modified": 1485804933927,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "README.md": {
+        "previousModTime": 1485804933930,
+        "modified": 1485804933930,
+        "seen": true,
+        "name": "README.md"
+      },
+      "external_interface.js": {
+        "previousModTime": 1485937290014,
+        "modified": 1485937290014,
+        "seen": true,
+        "name": "external_interface.js"
+      },
+      "iot.api.js": {
+        "previousModTime": 1485874143036,
+        "modified": 1485874143036,
+        "seen": true,
+        "name": "iot.api.js"
+      },
+      "main.js": {
+        "previousModTime": 1486113244206,
+        "modified": 1486113244206,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1485954082168,
+        "modified": 1485954082168,
+        "seen": true,
+        "name": "package.json"
+      },
+      "xdk-publish-meta-data.json": {
+        "previousModTime": 1485954082172,
+        "modified": 1485954082172,
+        "seen": true,
+        "name": "xdk-publish-meta-data.json"
+      },
+      ".idea/API_Interface.iml": {
+        "previousModTime": 1485806895583,
+        "modified": 1485806895583,
+        "seen": true,
+        "name": ".idea/API_Interface.iml"
+      },
+      ".idea/modules.xml": {
+        "previousModTime": 1485806895918,
+        "modified": 1485806895918,
+        "seen": true,
+        "name": ".idea/modules.xml"
+      },
+      ".idea/workspace.xml": {
+        "previousModTime": 1485868493686,
+        "modified": 1485868493686,
+        "seen": true,
+        "name": ".idea/workspace.xml"
+      },
+      "client/index.css": {
+        "previousModTime": 1486077996687,
+        "modified": 1486077996687,
+        "seen": true,
+        "name": "client/index.css"
+      },
+      "client/index.html": {
+        "previousModTime": 1486112820671,
+        "modified": 1486112820671,
+        "seen": true,
+        "name": "client/index.html"
+      },
+      "client/index.js": {
+        "previousModTime": 1485954082154,
+        "modified": 1485954082154,
+        "seen": true,
+        "name": "client/index.js"
+      },
+      "xdk/project-info.json": {
+        "previousModTime": 1485954082175,
+        "modified": 1485954082175,
+        "seen": true,
+        "name": "xdk/project-info.json"
+      },
+      "externals/BLINCHIKI.js": {
+        "previousModTime": 1486111549978,
+        "modified": 1486111549978,
+        "seen": true,
+        "name": "externals/BLINCHIKI.js"
+      },
+      "externals/DICH_INTELFACE.js": {
+        "previousModTime": 1486113089733,
+        "modified": 1486113089733,
+        "seen": true,
+        "name": "externals/DICH_INTELFACE.js"
+      },
+      "externals/iot.api.js": {
+        "previousModTime": 1485961362257,
+        "modified": 1485961362257,
+        "seen": true,
+        "name": "externals/iot.api.js"
+      },
+      "client/style.css": {
+        "previousModTime": 1486079688521,
+        "modified": 1486079688521,
+        "seen": true,
+        "name": "client/style.css"
+      },
+      "client/css/animate.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/animate.css"
+      },
+      "client/css/bootstrap.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/bootstrap.css"
+      },
+      "client/css/font-awesome.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/font-awesome.css"
+      },
+      "client/css/multi-select.css": {
+        "previousModTime": 1479813452000,
+        "modified": 1479813452000,
+        "seen": true,
+        "name": "client/css/multi-select.css"
+      },
+      "client/css/owl.carousel.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/owl.carousel.css"
+      },
+      "client/css/reset.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/reset.css"
+      },
+      "client/css/responsive.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/responsive.css"
+      },
+      "client/css/uikit.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/uikit.css"
+      },
+      "client/css/venobox.css": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/css/venobox.css"
+      },
+      "client/fonts/FontAwesome.otf": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/FontAwesome.otf"
+      },
+      "client/fonts/fontawesome-webfont.eot": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/fontawesome-webfont.eot"
+      },
+      "client/fonts/fontawesome-webfont.svg": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/fontawesome-webfont.svg"
+      },
+      "client/fonts/fontawesome-webfont.ttf": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/fontawesome-webfont.ttf"
+      },
+      "client/fonts/fontawesome-webfont.woff": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/fontawesome-webfont.woff"
+      },
+      "client/fonts/fontawesome-webfont.woff2": {
+        "previousModTime": 1482411034000,
+        "modified": 1482411034000,
+        "seen": true,
+        "name": "client/fonts/fontawesome-webfont.woff2"
+      },
+      "client/fonts/glyphicons-halflings-regular.eot": {
+        "previousModTime": 1469443382000,
+        "modified": 1469443382000,
+        "seen": true,
+        "name": "client/fonts/glyphicons-halflings-regular.eot"
+      },
+      "client/fonts/glyphicons-halflings-regular.svg": {
+        "previousModTime": 1469443382000,
+        "modified": 1469443382000,
+        "seen": true,
+        "name": "client/fonts/glyphicons-halflings-regular.svg"
+      },
+      "client/fonts/glyphicons-halflings-regular.ttf": {
+        "previousModTime": 1469443382000,
+        "modified": 1469443382000,
+        "seen": true,
+        "name": "client/fonts/glyphicons-halflings-regular.ttf"
+      },
+      "client/fonts/glyphicons-halflings-regular.woff": {
+        "previousModTime": 1469443382000,
+        "modified": 1469443382000,
+        "seen": true,
+        "name": "client/fonts/glyphicons-halflings-regular.woff"
+      },
+      "client/fonts/glyphicons-halflings-regular.woff2": {
+        "previousModTime": 1469443382000,
+        "modified": 1469443382000,
+        "seen": true,
+        "name": "client/fonts/glyphicons-halflings-regular.woff2"
+      },
+      "client/img/carousel-reloader.png": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/carousel-reloader.png"
+      },
+      "client/img/close.gif": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/close.gif"
+      },
+      "client/img/creative-team-bottom.png": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/creative-team-bottom.png"
+      },
+      "client/img/header-down.png": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/header-down.png"
+      },
+      "client/img/header_bg.jpg": {
+        "previousModTime": 1486043618000,
+        "modified": 1486043618000,
+        "seen": true,
+        "name": "client/img/header_bg.jpg"
+      },
+      "client/img/next.gif": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/next.gif"
+      },
+      "client/img/our-client-two.png": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/our-client-two.png"
+      },
+      "client/img/package-mix-one.jpg": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/package-mix-one.jpg"
+      },
+      "client/img/preload-circle.png": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/preload-circle.png"
+      },
+      "client/img/prev.gif": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/img/prev.gif"
+      },
+      "client/img/single-service-two.png": {
+        "previousModTime": 1486026980000,
+        "modified": 1486026980000,
+        "seen": true,
+        "name": "client/img/single-service-two.png"
+      },
+      "client/img/site-logo.png": {
+        "previousModTime": 1486043520000,
+        "modified": 1486043520000,
+        "seen": true,
+        "name": "client/img/site-logo.png"
+      },
+      "client/js/bootstrap.js": {
+        "previousModTime": 1486029962000,
+        "modified": 1486029962000,
+        "seen": true,
+        "name": "client/js/bootstrap.js"
+      },
+      "client/js/jquery-1.11.2.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/jquery-1.11.2.min.js"
+      },
+      "client/js/jquery.easing.1.3.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/jquery.easing.1.3.min.js"
+      },
+      "client/js/jquery.mixitup.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/jquery.mixitup.min.js"
+      },
+      "client/js/jquery.multi-select.js": {
+        "previousModTime": 1479813452000,
+        "modified": 1479813452000,
+        "seen": true,
+        "name": "client/js/jquery.multi-select.js"
+      },
+      "client/js/jquery.nav.js": {
+        "previousModTime": 1486031354000,
+        "modified": 1486031354000,
+        "seen": true,
+        "name": "client/js/jquery.nav.js"
+      },
+      "client/js/jquery.parallax-1.1.3.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/jquery.parallax-1.1.3.js"
+      },
+      "client/js/main.js": {
+        "previousModTime": 1486112600668,
+        "modified": 1486112600668,
+        "seen": true,
+        "name": "client/js/main.js"
+      },
+      "client/js/owl.carousel.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/owl.carousel.min.js"
+      },
+      "client/js/sticky.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/sticky.min.js"
+      },
+      "client/js/uikit.js": {
+        "previousModTime": 1486031352000,
+        "modified": 1486031352000,
+        "seen": true,
+        "name": "client/js/uikit.js"
+      },
+      "client/js/venobox.min.js": {
+        "previousModTime": 1467311480000,
+        "modified": 1467311480000,
+        "seen": true,
+        "name": "client/js/venobox.min.js"
+      },
+      "client/js/wow.js": {
+        "previousModTime": 1486031338000,
+        "modified": 1486031338000,
+        "seen": true,
+        "name": "client/js/wow.js"
+      },
+      "externals/POLYTOPE.js": {
+        "previousModTime": 1486109510583,
+        "modified": 1486109510583,
+        "seen": true,
+        "name": "externals/POLYTOPE.js"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1486113248893
+      }
+    }
+  }
+}
